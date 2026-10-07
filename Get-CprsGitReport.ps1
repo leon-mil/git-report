@@ -898,13 +898,6 @@ if ($null -eq $fileChanges) {
     $fileChanges = 0
 }
 
-$uniqueFiles = @(
-    $sorted |
-        ForEach-Object { $_.Files } |
-        ForEach-Object { "$($_.Status):$($_.Path)" } |
-        Sort-Object -Unique
-).Count
-
 # Count unique file paths independently of the change status.
 $uniqueFilePaths = @(
     $sorted |
